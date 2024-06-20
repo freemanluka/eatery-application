@@ -6,7 +6,7 @@ const {PORT} = require("./config/envConfig")
 
 const app = express();
 
-// require("./operations/routes")(app)
+require("./operations/routes")(app)
 require("./operations/db")(app)
 
 app.use(notFound);

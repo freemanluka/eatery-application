@@ -11,7 +11,7 @@ const logger = winston.createLogger({
     ),
     transports: [
       new winston.transports.Console() // Add a console transport
-      // You can add other transports (e.g., file, database) here
+      // Can add other transports (e.g., file, database) here
     ]
   });
 
@@ -21,5 +21,5 @@ mongoose.set("strictQuery", false);
 
 module.exports = function () {
     mongoose.connect(db)
-    .then(() => logger.info('Eatery Application Db reconnected successfully!'));
+    .then(() => logger.info('Eatery Application DB reconnected successfully!'));
 }

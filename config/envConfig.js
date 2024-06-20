@@ -2,7 +2,7 @@ require("dotenv").config();
 
 
 
-const PORT = process.env.PORT || 3553
+const PORT = process.env.PORT || 3550
 const VERSION = process.env.VERSION
 const PASSMAILER = process.env.PASSMAILER
 const USER = process.env.USER
