@@ -20,6 +20,6 @@ const logger = winston.createLogger({
 mongoose.set("strictQuery", false);
 
 module.exports = function () {mongoose.
-  connect("mongodb+srv://freemanluka:OJpyYm7RVuAbSbcJ@eateryapplication.wcqe3lm.mongodb.net/").
+  connect(db).
   then(() => logger.info('Eatery Application DB reconnected successfully!'));
 } // Render refused anything in place of MongoDB link {I had to put it here}

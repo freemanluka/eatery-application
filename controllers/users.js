@@ -10,7 +10,7 @@ const getOTP = async (req, res, next) => {
     const { email } = req.body;
  
     const OTP = await generateOTP();
-    console.log(OTP)
+    // console.log(OTP)
 
     await otpModel.create({
         email: email,
@@ -42,7 +42,7 @@ const resendOTP = async (req, res) => {
     await otpModel.deleteMany({email:otpExist?.email});
 
     const OTP = await generateOTP();
-    console.log(OTP)
+    // console.log(OTP)
     await otpModel.create({
         email: email,
         code: OTP,
@@ -124,7 +124,7 @@ const validateOTP = async (req, res) => {
 };
 
 const signUp = async (req, res, next) => {
-    const {email, password} = req.body;
+    const {name, email, password} = req.body;
 
     const userExist = await userModel.findOne({ email: email});
     
@@ -140,9 +140,10 @@ const signUp = async (req, res, next) => {
 
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    console.log({hashedPassword})
+    // console.log({hashedPassword})
 
     const saveUser = await userModel.create({
+        name: name,
         email: email,
         password: hashedPassword,
     });
@@ -159,9 +160,9 @@ const signUp = async (req, res, next) => {
 const login = async (req, res) => {
     
     
-    const {email, password, name} = req.body;
+    const {email, password} = req.body;
 
-    console.log(name, email, password)
+    console.log(email, password)//, password)
 
     const userExist = await userModel.findOne({ email: email})
 
@@ -172,7 +173,7 @@ const login = async (req, res) => {
         });
     };
 
-    console.log(userExist.password)
+    // console.log(userExist.password)
 
     const passwordMatches = await bcrypt.compare(password, userExist.password);
 
